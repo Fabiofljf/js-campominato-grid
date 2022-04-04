@@ -11,25 +11,31 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 
 //FUNZIONI
-let elementCell, elementCells;
+let elementCell, elementCells, numeriAcaso;
 
 function creare_celle(params) {
     for (i = 0; i < params; i++) {
-        let elementCell = document.createElement('div')
-        console.log(elementCell)
+        elementCell = document.createElement('div')
         elementCell.classList.add('cella_figlio')
+        numeriAcaso = genera_numeri_random(1, params)
+        elementCell.append(numeriAcaso)
         elementCells = document.getElementById('cells')
         elementCells.append(elementCell)
+
     }
 }
 
-// function genera_numeri_random(min, max) {
-//     return Math.floor(Math.random() * (max - min)) + min;
-// }
+function genera_numeri_random(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
 
 //LIVELLO - facile
-const livelloFacile = (creare_celle(100))
-console.log(livelloFacile)
+const livelloFacile = creare_celle(100)
+
+
+
 
 //LIVELLO - medio
 
