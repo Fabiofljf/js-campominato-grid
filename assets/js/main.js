@@ -5,15 +5,32 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
-//PRIMO PASSO - creo div.cell da inserire dentro cells
+//PRIMO PASSO - Creo tre livelli differenti (in HTML, usando option) che al click cambiano il numero delle caselle.
 
-//VARIABILI
-let elementCells, elementCell;
+//SECONDO PASSO - Inizio a creare una sezione per le mie funzioni e una per i vari livelli.
 
-elementCells = document.getElementById('cells')
-for (i = 0; i < 100; i++) {
-    elementCell = document.createElement('div')
-    elementCell.classList.add('cella_figlio')
-    elementCells.append(elementCell)
+
+//FUNZIONI
+let elementCell, elementCells;
+
+function creare_celle(params) {
+    for (i = 0; i < params; i++) {
+        let elementCell = document.createElement('div')
+        console.log(elementCell)
+        elementCell.classList.add('cella_figlio')
+        elementCells = document.getElementById('cells')
+        elementCells.append(elementCell)
+    }
 }
-console.log(elementCell)
+
+// function genera_numeri_random(min, max) {
+//     return Math.floor(Math.random() * (max - min)) + min;
+// }
+
+//LIVELLO - facile
+const livelloFacile = (creare_celle(100))
+console.log(livelloFacile)
+
+//LIVELLO - medio
+
+//LIVELLO - difficile
