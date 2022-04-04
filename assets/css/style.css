@@ -25,23 +25,32 @@ img {
 
 /* MAIN */
 
+.h_special {
+    height: calc(100vh - 150px)
+}
+
 .bg_main {
-    background-color: palegreen;
+    background-color: #7FFFD4;
 }
 
 .cella_padre {
     display: flex;
     flex-wrap: wrap;
+    width: 500px;
 }
 
-.cella_figlio {
+.cella_singola {
     display: flex;
     justify-content: center;
     align-items: center;
     width: calc(100% / 10);
     aspect-ratio: 1 / 1;
     border: 1px solid black;
-    background-color: brown;
+    background-color: #7FFFD4;
+}
+
+.color {
+    background-color: #6495ED;
 }
 
 
