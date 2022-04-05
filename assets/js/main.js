@@ -10,28 +10,46 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 
 
-function getGrill(selettore, n_celle, tag, tag_classe) {
-    console.log(selettore, n_celle, tag, tag_classe)
+function getGrill(selettore, n_celle, tag, tag_classe1, tag_classe2) {
+    //console.log(selettore, n_celle, tag, tag_classe1, tag_classe2)
     const cells = document.querySelector(selettore)
         //console.log(cells);
+
+    //pulire area di gioco
+    cells.innerHTML = ''
+
     for (let i = 1; i <= (n_celle); i++) {
+        //console.log(n_celle);
         const cell = document.createElement(tag)
             //console.log(cell);
             //aggiungo la classe alle celle
-        cell.classList.add(tag_classe)
-            //console.log(cell);
+        cell.classList.add(tag_classe1, tag_classe2)
+            //console.log(cell)
         cells.append(cell)
-        console.log(cells)
+            //console.log(cells)
 
     }
 }
 
 // LIVELLI DI GIOCO
-//Livello facile
-// document.getElementById('btn_play').addEventListener('click', generaGioco);
 
-// function generaGioco(event) {
-//     //Previene il comportamento della pagina (non refrescia)
-//     event.preventDefault()
-getGrill('cella_padre', 100, 'div', 'cella_singola')
-    // }
+//Livello facile
+
+document.getElementById('btn_play').addEventListener('click', generaGioco_facile);
+
+function generaGioco_facile(event) {
+    //Previene il comportamento della pagina(non refrescia)
+    event.preventDefault()
+
+    //richiamo l'id di select
+    const livelli = document.getElementById('livelli').value
+    console.log(livelli)
+    if (livelli === "facile") {
+        getGrill('.cella_padre', 100, 'div', 'cella_singola', 'misura_lg')
+    } else if (livelli === "medio") {
+        getGrill('.cella_padre', 81, 'div', 'cella_singola', 'misura_md')
+    } else {
+        getGrill('.cella_padre', 49, 'div', 'cella_singola', 'misura_sm')
+    }
+
+}
