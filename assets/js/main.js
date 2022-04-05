@@ -9,7 +9,9 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 
 
+
 function getGrill(selettore, n_celle, tag, tag_classe) {
+    console.log(selettore, n_celle, tag, tag_classe)
     const cells = document.querySelector(selettore)
         //console.log(cells);
     for (let i = 1; i <= (n_celle); i++) {
@@ -18,8 +20,8 @@ function getGrill(selettore, n_celle, tag, tag_classe) {
             //aggiungo la classe alle celle
         cell.classList.add(tag_classe)
             //console.log(cell);
-        cells.append(cell(i))
-            // console.log(cells)
+        cells.append(cell)
+        console.log(cells)
 
     }
 }
