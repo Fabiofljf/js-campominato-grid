@@ -39,16 +39,6 @@ function getGrill(selettore, n_celle, tag, tag_classe1, tag_classe2) {
 
 }
 
-//SECONDO PASSO - colorare le celle della griglia.
-
-/*
-    1. Selezionare tutti i nodi della DOM (tutte le celle)
-    2. Al click, evidenziare solo la cella di riferimento con THIS e cambiare colore
-*/
-const allCell = document.querySelectorAll(cella_singola)
-console.log(allCell);
-
-
 //LIVELLI DI GIOCO
 document.getElementById('btn_play').addEventListener('click', generaGioco_facile);
 
@@ -76,4 +66,25 @@ function generaGioco_facile(event) {
         getGrill('.cella_padre', 49, 'div', 'cella_singola', 'misura_sm')
     }
 
+    //SECONDO PASSO - colorare le celle della griglia.
+
+    /*
+        1. Selezionare tutti i nodi della DOM (tutte le celle)
+        2. Al click, evidenziare solo la cella di riferimento con THIS e cambiare colore
+    */
+    //Seleziono tutti i singoli nodi della DOM
+    const allCell = document.querySelectorAll('.cella_singola')
+        //console.log(allCell);
+    for (let i = 0; i < allCell.length; i++) {
+        //seleziono i singoli nodi della DOM
+        const singleCell = allCell[i];
+        //console.log(singleCell);
+
+        //Applico la classe che al click cambia colore
+        singleCell.addEventListener('click', function() {
+            //console.log(this, i);
+            this.classList.add('color')
+        })
+
+    }
 }
